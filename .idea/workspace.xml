@@ -32,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/scratch_pad.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.044313148">
-              <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -434,7 +434,13 @@
       <option name="project" value="LOCAL" />
       <updated>1474378624041</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="pycharm test&#10;">
+      <created>1474378841074</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1474378841074</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -658,7 +664,7 @@
     <entry file="file://$PROJECT_DIR$/scratch_pad.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.044313148">
-          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
