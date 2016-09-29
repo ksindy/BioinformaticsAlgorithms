@@ -1,56 +1,68 @@
-
 open_input = open('pattern_count_input.txt')
 text = open_input.read().rstrip().replace(" ", "")
 pattern = "CGGCGGGAGAT"
 
 from timeit import timeit
-import re
 
-
-def pattern_find_one(text, pattern):
-    list = []
+def pattern_search_one(text, pattern):
+    count = 0
     for i, nucleotide in enumerate(text):
         if text[i:i+len(pattern)] == pattern:
-            list.append(i)
-    return (list)
-# pattern_find_one:41.1288166979939
-# [215, 257, 361]
+            count += 1
+    return (count)
+#pattern_search_one:47.08834998100065
+#3
+
+def pattern_search_two(text, pattern):
+    return (text.count(pattern))
+#pattern_search_two:0.8119574589945842
+#3
+
+def pattern_search_three(text, pattern):
+    match = []
+    if pattern in text:
+        match.append("yes")
+    if not match:
+        return ("No pattern found in text.")
+    else:
+        return ("Pattern found in text.")
+#pattern_search_three:0.704544401000021
+#Pattern found in text.
+
+def pattern_search_four(text, patern):
+    match = text.find(pattern)
+    if match > -1:
+        return ("Pattern found in text.")
+    else:
+        return ("Pattern not found in text.")
+#pattern_search_four:0.900490316998912
+#Pattern found in text.
 
 
-def pattern_find_two(text,pattern):
-    matches = re.finditer('(?={0})'.format(pattern),text)
-    positions = [str(match.start()) for match in matches]
-    result = ' '.join(positions)
-    return(result)
-#pattern_find_two:15.497524202990462
-#215 257 361
+# print ("pattern_search_one:{}".format(timeit(
+#                                     "pattern_search_one(text, pattern)",
+#                                     "from __main__ import pattern_search_one;"
+#                                     "text='TGATTCCGGCGGGCGTGGAGAAGCGAGATTCATTCAAGCCGGGAGGCGTGGCGTGGCGTGGCGTGCGGATTCAAGCCGGCGGG';"
+#                                     "pattern='TTCCGG' ")))
+# print (pattern_search_one(text, pattern))
 
+# print ("pattern_search_two:{}".format(timeit(
+#                                     "pattern_search_two(text, pattern)",
+#                                     "from __main__ import pattern_search_two;"
+#                                     "text='TGATTCCGGCGGGCGTGGAGAAGCGAGATTCATTCAAGCCGGGAGGCGTGGCGTGGCGTGGCGTGCGGATTCAAGCCGGCGGG';"
+#                                     "pattern='TTCCGG' ")))
+# print (pattern_search_two(text, pattern))
 
-def pattern_find_three(text,pattern):
-    results = []
-    regex_pattern = re.compile('(?={0})'.format(pattern))
-    matches = regex_pattern.finditer(text)
-    for match in matches:
-        results.append(match.start())
-    return(results)
-# pattern_find_three:11.731942209997214
-# [215, 257, 361]
+# print ("pattern_search_three:{}".format(timeit(
+#                                     "pattern_search_three(text, pattern)",
+#                                     "from __main__ import pattern_search_three;"
+#                                     "text='TGATTCCGGCGGGCGTGGAGAAGCGAGATTCATTCAAGCCGGGAGGCGTGGCGTGGCGTGGCGTGCGGATTCAAGCCGGCGGG';"
+#                                     "pattern='TTCCGG' ")))
+# print (pattern_search_three(text, pattern))
 
-
-print ("pattern_find_one:{}".format(timeit(
-                                    "pattern_find_one(text, pattern)",
-                                    "from __main__ import pattern_find_one;"
-                                    "text='TGATTCCGGCGGGCGTGGAGAAGCGAGATTCATTCAAGCCGGGAGGCGTGGCGTGGCGTGGCGTGCGGATTCAAGCCGGCGGG';"
-                                    "pattern='TTCCGG' ")))
-
-print ("pattern_find_two:{}".format(timeit(
-                                    "pattern_find_two(text, pattern)",
-                                    "from __main__ import pattern_find_two;"
-                                    "text='TGATTCCGGCGGGCGTGGAGAAGCGAGATTCATTCAAGCCGGGAGGCGTGGCGTGGCGTGGCGTGCGGATTCAAGCCGGCGGG';"
-                                    "pattern='TTCCGG' ")))
-
-print ("pattern_find_three:{}".format(timeit(
-                                    "pattern_find_three(text, pattern)",
-                                    "from __main__ import pattern_find_three;"
-                                    "text='TGATTCCGGCGGGCGTGGAGAAGCGAGATTCATTCAAGCCGGGAGGCGTGGCGTGGCGTGGCGTGCGGATTCAAGCCGGCGGG';"
-                                    "pattern='TTCCGG' ")))
+# print ("pattern_search_four:{}".format(timeit(
+#                                     "pattern_search_four(text, pattern)",
+#                                     "from __main__ import pattern_search_four;"
+#                                     "text='TGATTCCGGCGGGCGTGGAGAAGCGAGATTCATTCAAGCCGGGAGGCGTGGCGTGGCGTGGCGTGCGGATTCAAGCCGGCGGG';"
+#                                     "pattern='TTCCGG' ")))
+# print (pattern_search_four(text, pattern))

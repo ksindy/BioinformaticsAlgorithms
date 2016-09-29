@@ -8,7 +8,6 @@ def reverse_complement(text):
     reverse_complement_text = text.translate(str.maketrans('ACGT','TGCA'))
     return reverse_complement_text
 
-
 def oligo_search(reference, oligo_sheet):
     oligo_column = 2
     reference = reference.upper().replace(' ','')
